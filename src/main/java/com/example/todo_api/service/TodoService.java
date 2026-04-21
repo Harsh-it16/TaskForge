@@ -2,6 +2,7 @@ package com.example.todo_api.service;
 
 
 import com.example.todo_api.entity.Todo;
+import com.example.todo_api.exception.ResourceNotFoundException;
 import com.example.todo_api.repository.TodoRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -12,7 +13,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class TodoService {
+public class TodoService extends ResourceNotFoundException {
     private final TodoRepository repo;
 
     public List<Todo> getAll() {
