@@ -12,7 +12,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping
+@RequestMapping("/api/auth")
 @RequiredArgsConstructor
 public class AuthController {
     private final AuthService authService;
@@ -29,6 +29,6 @@ public class AuthController {
 
     @GetMapping("/me")
     public ResponseEntity<String> me(@AuthenticationPrincipal UserDetails user) {
-        return ResponseEntity.ok("Hello" + user.getUsername() + " | Role: "+ user.getAuthorities());
+        return ResponseEntity.ok("Hello " + user.getUsername() + " | Role: "+ user.getAuthorities());
     }
 }
